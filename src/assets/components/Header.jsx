@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Header() {
   const location = useLocation();
@@ -8,7 +8,7 @@ export default function Header() {
     if (route === location.pathname) return true;
   };
   return (
-    <div className="bg-white-400 border-b shadow-sm sticky top-0">
+    <div className="bg-white border-b shadow-sm sticky top-0">
       <header className="flex justify-between items-center px-10">
         <div>
           <img
@@ -21,7 +21,7 @@ export default function Header() {
         <div>
           <ul className="flex space-x-10">
             <li
-              className={`py-1 text-xl font-semibold text-gray-500 border-b-[3px] border-b-transparent cursor-pointer ${
+              className={`cursor-pointer py-1 text-xl font-semibold text-gray-500 border-b-[3px] ${
                 pathMatchRoute("/") && "text-black border-b-red-500"
               }`}
               onClick={() => navigate("/")}
@@ -29,7 +29,7 @@ export default function Header() {
               Home
             </li>
             <li
-              className={`py-1 text-xl font-semibold text-gray-500 border-b-[3px] border-b-transparent cursor-pointer ${
+              className={`cursor-pointer py-1 text-xl font-semibold text-gray-500 border-b-[3px] ${
                 pathMatchRoute("/sign-in") && "text-black border-b-red-500"
               }`}
               onClick={() => navigate("/sign-in")}
